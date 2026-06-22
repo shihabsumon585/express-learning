@@ -12,13 +12,13 @@ const pool = new Pool({
   connectionString: ""
 })
 
-const initDB = async() => {
+const initDB = async () => {
   try {
     await pool.query(`
       CREATE TABLE IF NOT EXISTS users(
       id SERIAL PRIMARY KEY,
       name VARCHAR(20),
-      email VARCHAR(20) NOT NULL,
+      email VARCHAR(20) UNIQUE NOT NULL,
       password VARCHAR(20) NOT NULL,
       is_active BOOLEAN DEFAULT true,
       age INT,
@@ -27,7 +27,7 @@ const initDB = async() => {
       updated_at TIMESTAMP DEFAULT NOW()
       )
       `)
-      console.log("Database connected successfully!")
+    console.log("Database connected successfully!")
   } catch (error) {
     console.log(error)
   }
@@ -42,18 +42,30 @@ app.get('/', (req: Request, res: Response) => {
   })
 })
 
-app.post("/", (req: Request, res: Response) => {
+app.post("/", async (req: Request, res: Response) => {
   // console.log(req.body);
-  const { name, ID, password } = req.body;
-  res.status(201).json({
-    message: "Created...",
-    data: {
-      name,
-      ID
-    }
-  })
+  const { name, email, password, age } = req.body;
+  console.log({ name, email, password, age })
+
+  try {
+    const result = await pool.query(`
+      INSERT INTO users(name, email, password, age) VALUES($1, $2, $3, $4) RETURNING *
+    `, [name, email, password, age]);
+
+    // console.log(result);
+
+    res.status(201).json({
+      message: "Created...",
+      data: result.rows[0]
+    })
+  } catch (error: any) {
+    res.status(201).json({
+      message: error.message,
+      error: error
+    })
+  }
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
