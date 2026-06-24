@@ -9,7 +9,7 @@ app.use(express.text());
 app.use(express.urlencoded({ extended: true }));
 
 const pool = new Pool({
-  connectionString: ""
+  connectionString: "postgresql://neondb_owner:npg_VSfYNG7nE0iX@ep-hidden-fog-atpi7y01.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require"
 })
 
 const initDB = async () => {
@@ -29,7 +29,7 @@ const initDB = async () => {
       `)
     console.log("Database connected successfully!")
   } catch (error) {
-    console.log(error)
+    console.log("From init DB: ", error)
   }
 }
 initDB();
@@ -42,10 +42,10 @@ app.get('/', (req: Request, res: Response) => {
   })
 })
 
-app.post("/", async (req: Request, res: Response) => {
+app.post("/api/users", async (req: Request, res: Response) => {
   // console.log(req.body);
   const { name, email, password, age } = req.body;
-  console.log({ name, email, password, age })
+  // console.log({ name, email, password, age })
 
   try {
     const result = await pool.query(`
@@ -66,6 +66,57 @@ app.post("/", async (req: Request, res: Response) => {
   }
 })
 
-  app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
+
+app.get("/api/users", async (req: Request, res: Response) => {
+  try {
+    const result = await pool.query(`
+        SELECT * FROM users
+      `)
+    res.status(200).json({
+      success: true,
+      message: "Users retrived successfully!",
+      data: result.rows
+    })
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+      error: error
+    })
+  }
+})
+
+app.get("/api/users/:id", async (req: Request, res: Response) => {
+  const { id } = req.body;
+
+  try {
+    const result = await pool.query(`
+        SELECT * FROM users WHERE id=$1
+      `, [id]);
+
+    if (result.rows.length === 0) {
+      res.status(404).json({
+        success: false,
+        message: "User not found!",
+        data: {}
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User retrived successfully",
+      data: result.rows[0]
+    })
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+      error: error
+    })
+  }
+})
+
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
