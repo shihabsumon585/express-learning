@@ -5,7 +5,7 @@ import fs from "fs";
 const logger = (req: Request, res: Response, next: NextFunction) => {
   // console.log('Time:', Date.now());
   const log = `\nMethod -> ${req.method}, URL -> ${req.url}, Date -> ${Date.now()}\n`;
-  fs.appendFile("logger.txt", log, (err) => console.log(err))
+  fs.appendFile("logger.txt", log, (err) => {})
   next();
 };
 

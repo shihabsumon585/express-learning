@@ -72,3 +72,27 @@ Method -> GET, URL -> /api/users/, Date -> 1782482671168
 Method -> GET, URL -> /api/users/, Date -> 1782482788970
 
 Method -> GET, URL -> /api/users/, Date -> 1782483013168
+
+Method -> POST, URL -> /, Date -> 1782485033104
+
+Method -> POST, URL -> /api/users, Date -> 1782485044352
+
+Method -> POST, URL -> /api/users, Date -> 1782485082007
+
+Method -> POST, URL -> /api/users, Date -> 1782485195916
+
+Method -> POST, URL -> /api/users, Date -> 1782485376279
+
+Method -> POST, URL -> /api/users, Date -> 1782486245159
+
+Method -> POST, URL -> /api/users, Date -> 1782486355861
+
+Method -> POST, URL -> /api/users, Date -> 1782486386702
+
+Method -> POST, URL -> /api/users, Date -> 1782486478815
+
+Method -> POST, URL -> /api/users, Date -> 1782486782560
+
+Method -> POST, URL -> /api/users, Date -> 1782487388113
+
+Method -> POST, URL -> /api/users, Date -> 1782487511346
