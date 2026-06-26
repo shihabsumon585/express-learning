@@ -38,7 +38,7 @@ const authLoginIntoBD = async (payload: { email: string, password: string }) => 
 
     const accessToken = jwt.sign(jwtPayload, config.secret as string, { expiresIn: "1d" })
 
-    console.log("service: ", accessToken)
+    // console.log("service: ", accessToken)
 
 
     return { accessToken };
