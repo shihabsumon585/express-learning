@@ -1,0 +1,12 @@
+
+Method -> GET, URL -> /, Date -> 1782474633096
+
+Method -> GET, URL -> /favicon.ico, Date -> 1782474633518
+
+Method -> GET, URL -> /api/users, Date -> 1782474660291
+
+Method -> GET, URL -> /api/profile, Date -> 1782474680186
+
+Method -> GET, URL -> /api/login, Date -> 1782474698859
+
+Method -> GET, URL -> /api/users, Date -> 1782474718490
