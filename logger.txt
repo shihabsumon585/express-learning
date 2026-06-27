@@ -168,3 +168,5 @@ Method -> GET, URL -> /api/users/, Date -> 1782545124240
 Method -> GET, URL -> /api/users/, Date -> 1782545134550
 
 Method -> GET, URL -> /api/users/, Date -> 1782545142012
+
+Method -> POST, URL -> /api/users, Date -> 1782553249779
