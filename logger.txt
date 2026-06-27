@@ -156,3 +156,15 @@ Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541753722
 Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541779218
 
 Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782542461603
+
+Method -> GET, URL -> /api/users, Date -> 1782542590673
+
+Method -> POST, URL -> /api/users, Date -> 1782543835586
+
+Method -> POST, URL -> /api/users, Date -> 1782543849235
+
+Method -> GET, URL -> /api/users/, Date -> 1782545124240
+
+Method -> GET, URL -> /api/users/, Date -> 1782545134550
+
+Method -> GET, URL -> /api/users/, Date -> 1782545142012

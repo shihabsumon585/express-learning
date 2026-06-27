@@ -36,8 +36,12 @@ const refreshToken = async (req: Request, res: Response) => {
             message: "Access Token created...",
             data: result
         })
-    } catch (error) {
-
+    } catch (error: any) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+            error: error
+        })
     }
 }
 
