@@ -110,3 +110,49 @@ Method -> GET, URL -> /api/users, Date -> 1782528117977
 Method -> GET, URL -> /api/users, Date -> 1782528386395
 
 Method -> GET, URL -> /api/users, Date -> 1782528408672
+
+Method -> GET, URL -> /, Date -> 1782536541584
+
+Method -> GET, URL -> /favicon.ico, Date -> 1782536541760
+
+Method -> POST, URL -> /api/auth/login, Date -> 1782537720850
+
+Method -> POST, URL -> /api/auth/refresh-token/, Date -> 1782537822612
+
+Method -> POST, URL -> /api/auth/refresh-token/, Date -> 1782538121849
+
+Method -> POST, URL -> /api/auth/refresh-token/, Date -> 1782540786916
+
+Method -> POST, URL -> /api/auth/refresh-token/, Date -> 1782540801646
+
+Method -> POST, URL -> /api/auth/refresh-token/, Date -> 1782540858099
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782540891376
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541119910
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541150995
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541177568
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541209147
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541415035
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541431612
+
+Method -> POST, URL -> /api/auth/login, Date -> 1782541440692
+
+Method -> POST, URL -> /api/auth/login, Date -> 1782541479101
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541506531
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541525142
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541553143
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541753722
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782541779218
+
+Method -> POST, URL -> /api/auth/refresh-token, Date -> 1782542461603
