@@ -33,15 +33,18 @@ const authLoginIntoBD = async (payload: { email: string, password: string }) => 
         id: user.id,
         name: user.name,
         email: user.email,
-        is_active: user.is_active
+        is_active: user.is_active,
+        role: user.role
     }
 
     const accessToken = jwt.sign(jwtPayload, config.secret as string, { expiresIn: "1d" })
+    
+    const refreshToken = jwt.sign(jwtPayload, config.refresh_secret as string, { expiresIn: "1d" })
 
     // console.log("service: ", accessToken)
 
 
-    return { accessToken };
+    return { accessToken, refreshToken };
 }
 
 export const authService = {

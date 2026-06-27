@@ -2,8 +2,9 @@ import type { NextFunction, Request, Response } from "express";
 import Jwt, { type JwtPayload } from "jsonwebtoken";
 import config from "../config";
 import { pool } from "../db";
+import type { ROLES } from "../types";
 
-const auth = () => {
+const auth = (...roles: ROLES[]) => {
     return async (req: Request, res: Response, next: NextFunction) => {
 
         try {
@@ -33,6 +34,13 @@ const auth = () => {
 
             if (!user.is_active) {
                 res.status(403).json({
+                    success: false,
+                    message: "Forbidden..."
+                })
+            }
+
+            if(roles.length && !roles.includes(user.role)) {
+                res.status(401).json({
                     success: false,
                     message: "Forbidden..."
                 })
